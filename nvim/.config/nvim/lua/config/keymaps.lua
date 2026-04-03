@@ -15,9 +15,7 @@ end, { desc = "Fzf Files (All including gitignored)" })
 
 -- Neo Tree
 vim.keymap.set("n", "<leader>w", ":Neotree toggle<cr>", { desc = "Toggle Neo-Tree", silent = true })
--- vim.keymap.set("n", "<leader>e", function()
---   require("neo-tree.command").execute({ action = "toggle", source = "filesystem" })
--- end, { desc = "Toggle NeoTree (toggle)" })
+vim.keymap.set("n", "<leader>b", ":Neotree buffers toggle<cr>", { desc = "Toggle Neo-Tree Buffers", silent = true })
 
 -- Yank relative path with y p
 vim.keymap.set("o", "p", function()
