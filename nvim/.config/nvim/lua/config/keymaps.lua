@@ -4,6 +4,20 @@ vim.keymap.set("n", "<C-j>", ":TmuxNavigateDown<CR>")
 vim.keymap.set("n", "<C-k>", ":TmuxNavigateUp<CR>")
 vim.keymap.set("n", "<C-l>", ":TmuxNavigateRight<CR>")
 
+-- Tab shortcut
+vim.keymap.set("v", "<", "<gv", { noremap = true, silent = true })
+vim.keymap.set("v", ">", ">gv", { noremap = true, silent = true })
+
+-- Move current line down (Alt+J)
+vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { noremap = true, silent = true })
+vim.keymap.set("i", "<A-j>", ":m .+1<CR>==gi", { noremap = true, silent = true })
+vim.keymap.set("v", "<A-j>", ":m '>+1gv<CR>=gv", { noremap = true, silent = true })
+
+-- Move current line up (Alt+K)
+vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { noremap = true, silent = true })
+vim.keymap.set("i", "<A-k>", ":m .-2<CR>==gi", { noremap = true, silent = true })
+vim.keymap.set("v", "<A-k>", ":m '<-2gv<CR>=gv", { noremap = true, silent = true })
+
 -- Fzf
 vim.keymap.set("n", "<leader>ff", "<cmd>FzfLua files<cr>", { desc = "Fzf Files" })
 vim.keymap.set("n", "<leader>fa", function()

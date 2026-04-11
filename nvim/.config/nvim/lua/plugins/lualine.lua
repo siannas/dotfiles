@@ -1,5 +1,6 @@
 require("lualine").setup({
 	options = {
+		theme = "tokyonight",
 		disabled_filetypes = {
 			statusline = { "neo-tree" },
 			tabline = { "neo-tree" },
