@@ -4,6 +4,10 @@ vim.keymap.set("n", "<C-j>", ":TmuxNavigateDown<CR>")
 vim.keymap.set("n", "<C-k>", ":TmuxNavigateUp<CR>")
 vim.keymap.set("n", "<C-l>", ":TmuxNavigateRight<CR>")
 
+-- Save Files
+vim.keymap.set("n", "<C-S>", ":update<CR>", { noremap = true, silent = true })
+vim.keymap.set("i", "<C-S>", "<C-O>:update<CR>", { noremap = true, silent = true })
+
 -- Tab shortcut
 vim.keymap.set("v", "<", "<gv", { noremap = true, silent = true })
 vim.keymap.set("v", ">", ">gv", { noremap = true, silent = true })
@@ -17,6 +21,14 @@ vim.keymap.set("v", "<A-j>", ":m '>+1gv<CR>=gv", { noremap = true, silent = true
 vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { noremap = true, silent = true })
 vim.keymap.set("i", "<A-k>", ":m .-2<CR>==gi", { noremap = true, silent = true })
 vim.keymap.set("v", "<A-k>", ":m '<-2gv<CR>=gv", { noremap = true, silent = true })
+
+-- Vertical resize (height)
+vim.keymap.set("n", "<C-Up>", ":resize +1<CR>")
+vim.keymap.set("n", "<C-Down>", ":resize -1<CR>")
+
+-- Horizontal resize (width)
+vim.keymap.set("n", "<C-Right>", ":vertical resize +1<CR>")
+vim.keymap.set("n", "<C-Left>", ":vertical resize -1<CR>")
 
 -- Fzf
 vim.keymap.set("n", "<leader>ff", "<cmd>FzfLua files<cr>", { desc = "Fzf Files" })
@@ -58,3 +70,10 @@ vim.keymap.set("o", "P", function()
 	vim.notify("Yanked: " .. path)
 	return ""
 end, { expr = true, desc = "Yank absolute file path" })
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "qf" },
+	callback = function()
+		vim.keymap.set("n", "<CR>", "<CR>:cclose<CR>", { silent = true, buffer = true })
+	end,
+})

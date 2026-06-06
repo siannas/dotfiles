@@ -31,6 +31,8 @@ require("mason-lspconfig").setup({
 	ensure_installed = {
 		"intelephense", -- LSP PHP yang sangat stabil
 		"lua_ls",
+		"qmlls",
+		"gopls",
 	},
 })
 
@@ -66,3 +68,28 @@ vim.lsp.config("lua_ls", {
 })
 
 vim.lsp.enable({ "lua_ls" })
+
+vim.lsp.config("qmlls", {
+	capabilities = require("cmp_nvim_lsp").default_capabilities(),
+	cmd = { "qmlls" },
+	filetypes = { "qml" },
+	single_file_support = true,
+})
+
+vim.lsp.enable({ "qmlls" })
+
+vim.lsp.config("gopls", {
+	capabilities = require("cmp_nvim_lsp").default_capabilities(),
+	settings = {
+		gopls = {
+			gofumpt = true,
+			staticcheck = true,
+			analyses = {
+				unusedparams = true,
+			},
+		},
+	},
+	filetypes = { "go", "gomod" },
+})
+
+vim.lsp.enable({ "gopls" })

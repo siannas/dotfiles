@@ -50,6 +50,13 @@ Plug("folke/noice.nvim")
 -- fzf
 Plug("ibhagwan/fzf-lua")
 
+-- quick fix setting
+Plug("yorickpeterse/nvim-pqf")
+Plug("kevinhwang91/nvim-bqf")
+
+-- Markdown Preview
+Plug("iamcco/markdown-preview.nvim", { ["do"] = "cd app && npx --yes yarn install" })
+
 -- Inisialisasi sederhana untuk plugin yang membutuhkan setup
 -- In your main init.lua, after plug#end()
 vim.api.nvim_create_autocmd("VimEnter", {

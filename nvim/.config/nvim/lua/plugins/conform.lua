@@ -8,6 +8,7 @@ require("conform").setup({
 		typescript = { "prettier" },
 		javascriptreact = { "prettier" },
 		typescriptreact = { "prettier" },
+		go = { "goimports", "gofumpt", stop_after_first = true },
 	},
 })
 
@@ -17,5 +18,7 @@ require("mason-tool-installer").setup({
 		"prettier",
 		"prettierd",
 		"pint",
+		"goimports",
+		"gofumpt",
 	},
 })
